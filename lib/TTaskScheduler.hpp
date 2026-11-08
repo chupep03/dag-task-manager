@@ -16,7 +16,7 @@
 
 class ITaskBase;
 template <typename T> class TFuture;
-class TTask;   // forward — БЕЗ include "TTask.hpp"
+class TTask;
 
 namespace detail {
     template <typename T> struct is_future_helper : std::false_type {};
