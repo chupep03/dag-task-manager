@@ -64,7 +64,7 @@ inline Coordinates FetchCoordinates() {
 inline Weather FetchWeather(const Coordinates& c) {
     std::ostringstream url;
     url << "https://api.weatherapi.com/v1/current.json"
-        << "?key=" << config::kWeatherApiKey
+        << "?key=" << config::WeatherApiKey()
         << "&q=" << c.lat << "," << c.lon
         << "&lang=ru";
 
