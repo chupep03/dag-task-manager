@@ -1,0 +1,35 @@
+# --- Build ---
+build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+CTestTestfile.cmake
+_deps/
+
+# --- Compiled ---
+*.o
+*.obj
+*.a
+*.so
+*.dylib
+*.exe
+*.out
+*.app
+
+# --- IDE ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.vs/
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+
+# --- Local / secrets ---
+.env
+*.local
