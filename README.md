@@ -109,19 +109,6 @@ ctest --output-on-failure
 | **Overpass API** | Объекты рядом: музеи, парки, кафе, театры и т.д. радиусе 2 км | `https://overpass-api.de/api/interpreter` |
 | **OSRM** | Матрица расстояний пешком между точками | `https://router.project-osrm.org/table/v1/walking/...` |
 
-Особенности:
-
-- WeatherAPI требует ключ — сейчас лежит в `config.hpp` (`kWeatherApiKey`). 
-  Для реального использования вынесите в переменную окружения.
-- Overpass принимает Overpass QL запрос; в `api.hpp` он URL-кодируется вручную 
-  (пробелы → `%20`, кавычки → `%22`).
-- OSRM возвращает матрицу `distances`; берётся строка 0 (от текущей точки) 
-  и столбцы 1..N (до мест).
-- HTTP-слой (`api::HttpGet`) использует libcurl с таймаутом 30 с, проверяет 
-  `CURLE_OK` и HTTP 200, кидает `std::runtime_error` при ошибке.
-- JSON парсится через `nlohmann::json`; для `Coordinates` и `Weather` 
-  определены `from_json`.
-
 ## Мини-пример
 
 ```cpp
@@ -139,5 +126,4 @@ auto c = scheduler.Add([](int x, int y){ return x + y; },
 
 scheduler.ExecuteAll();
 std::cout << c.GetFutureResult<int>().Get() << "\n";  // 5
-```
 ```
